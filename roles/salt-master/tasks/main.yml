@@ -1,0 +1,22 @@
+# Update repositories cache and install "foo" package
+
+- name : update repos and install python-software-properties
+  apt: name=python-software-properties
+  sudo: True
+
+- name: Add salt repo on Ubuntu
+  apt_repository: repo='ppa:saltstack/salt'
+
+- name: 
+  debug: msg="{{ groups['salt-minion'] }}"
+  with_items:
+    - "{{ groups['salt-minion'] }}"
+
+- name: for each host in group print
+  local_action: shell echo one host name name is 
+
+- debug: msg={{ hostvars['{{ item }}']['ansible_distribution'] }}
+  with_items:
+    - "{{ groups['salt-minion'] }}"
+
+ # wait_for: path=/etc/salt/pki/master/minions/{{ item }}

@@ -3,4 +3,10 @@
   sudo: True
   roles:
     - { role: salt-minion, sudo: yes }
+
+- hosts: salt-master
+  user: ubuntu
+  sudo: True
+  roles: 
+    - { role: salt-master, sudo: yes }
   
