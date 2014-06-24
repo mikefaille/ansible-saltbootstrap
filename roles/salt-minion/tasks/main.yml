@@ -1,0 +1,16 @@
+# Update repositories cache and install "foo" package
+
+- name : update repos and install python-software-properties
+  apt: name=python-software-properties
+  sudo: True
+
+- name: Add salt repo on Ubuntu
+  apt_repository: repo='ppa:saltstack/salt'
+
+
+- name : update repos and install salt-minion
+  apt: name=salt-minion update_cache=yes state=latest
+
+- name: Copy the minion config file
+  template: src=minion dest=/etc/salt/minion
+  notify: restart salt-minion

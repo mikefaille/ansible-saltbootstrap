@@ -1,0 +1,2 @@
+[salt-minion]
+192.168.122.111 ansible_ssh_user=ubuntu ansible_ssh_pass=ubuntu ansible_sudo_pass='ubuntu'
